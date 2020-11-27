@@ -22,8 +22,8 @@ devtools::install_github("cpesr/cpesrthemes", subdir="ggcpesrthemes")
 ``` r
 library(ggplot2)
 library(ggcpesrthemes)
-ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
-  geom_boxplot() +
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
   theme_cpesr() 
 ```
 
@@ -36,8 +36,8 @@ ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) +
 ``` r
 library(ggplot2)
 library(ggcpesrthemes)
-ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
-  geom_boxplot() +
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
   theme_cpesr_cap() 
 ```
 
@@ -50,8 +50,8 @@ ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) +
 ``` r
 library(ggplot2)
 library(ggcpesrthemes)
-ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
-  geom_boxplot() +
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
   theme_cpesr_cap(authors=c("Author One","Author Two"), 
               camille=FALSE, 
               licence="CC BY-SA",
@@ -73,8 +73,8 @@ theme_cpesr_setup(authors=c("Author One","Author Two"),
                   licence="CC BY-SA",
                   url="https://github.com/cpesr/cpesrthemes")
 
-ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
-  geom_boxplot() +
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
   theme_cpesr_cap()
 ```
 
