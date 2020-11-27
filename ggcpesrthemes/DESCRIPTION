@@ -1,0 +1,13 @@
+Package: ggcpesrthemes
+Type: Package
+Title: This package provides themes for CPESR work with R
+Version: 0.1.0
+Author: Julien Gossa
+Maintainer: Julien Gossa <julien.gossa@gmail.com>
+Description: Mainly provides theme_cpesr for ggplot
+License: GNL-3.0
+Encoding: UTF-8
+LazyData: true
+Imports:
+  ggthemes
+RoxygenNote: 7.1.1

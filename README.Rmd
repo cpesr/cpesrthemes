@@ -1,7 +1,13 @@
-cpesrthemes
-================
+---
+title: "cpesrthemes"
+output: github_document
+---
 
-Collections d’aides pour la mise en forme des travaux de la CPESR.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Collections d'aides pour la mise en forme des travaux de la CPESR.
 
 ## ggcpesrthemes
 
@@ -9,17 +15,15 @@ Package R pour la production de graphiques.
 
 ### Installation
 
-``` r
+```{r install, eval=FALSE}
 devtools::install_github("cpesr/cpesrthemes", subdir="ggcpesrthemes")
 ```
 
 ### Utilisation
 
-  - Juste le thème
+- Juste le thème
 
-<!-- end list -->
-
-``` r
+```{r utilisation.simple, warning=FALSE}
 library(ggplot2)
 library(ggcpesrthemes)
 ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
@@ -27,13 +31,9 @@ ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) +
   theme_cpesr() 
 ```
 
-![](README_files/figure-gfm/utilisation.simple-1.png)<!-- -->
+- Thème et caption par défaut
 
-  - Thème et caption par défaut
-
-<!-- end list -->
-
-``` r
+```{r utilisation.cap, warning=FALSE}
 library(ggplot2)
 library(ggcpesrthemes)
 ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
@@ -41,13 +41,10 @@ ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) +
   theme_cpesr_cap() 
 ```
 
-![](README_files/figure-gfm/utilisation.cap-1.png)<!-- -->
 
-  - Thème et caption personnalisés
+- Thème et caption personnalisés
 
-<!-- end list -->
-
-``` r
+```{r utilisation.perso, warning=FALSE}
 library(ggplot2)
 library(ggcpesrthemes)
 ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) + 
@@ -58,13 +55,9 @@ ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) +
               url="https://github.com/cpesr/cpesrthemes" )
 ```
 
-![](README_files/figure-gfm/utilisation.perso-1.png)<!-- -->
+- Thème et caption personnalisés globalement
 
-  - Thème et caption personnalisés globalement
-
-<!-- end list -->
-
-``` r
+```{r utilisation.glob, warning=FALSE}
 library(ggplot2)
 library(ggcpesrthemes)
 
@@ -78,4 +71,3 @@ ggplot(kpiESR::esr, aes(x=Rentrée, y=kpi.ETU.P.effectif, fill=Type)) +
   theme_cpesr_cap()
 ```
 
-![](README_files/figure-gfm/utilisation.glob-1.png)<!-- -->
