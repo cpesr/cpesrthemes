@@ -9,6 +9,7 @@ theme_cpesr_setup(
   camille = TRUE,
   url = "cpesr.fr",
   licence = "GPL-3.0",
+  source = NA,
   base_family = "Raleway"
 )
 }
@@ -20,6 +21,8 @@ theme_cpesr_setup(
 \item{url}{a referene url (default: cpesr.fr)}
 
 \item{licence}{the licence (default: GPL-3.0)}
+
+\item{source}{the source of data}
 
 \item{base_family}{the font base family (default: Raleway)}
 

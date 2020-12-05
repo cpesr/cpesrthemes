@@ -9,6 +9,7 @@ theme_cpesr_cap(
   camille = NULL,
   url = NULL,
   licence = NULL,
+  source = NULL,
   base_family = NULL,
   ...
 )
@@ -18,9 +19,11 @@ theme_cpesr_cap(
 
 \item{camille}{add Camille Noûs as authors (default: TRUE)}
 
-\item{url}{a referene url (default: cpesr.fr)}
+\item{url}{a reference url (default: cpesr.fr)}
 
 \item{licence}{the licence (default: GPL-3.0)}
+
+\item{source}{the source of data}
 
 \item{base_family}{the font base family (default: Raleway)}
 

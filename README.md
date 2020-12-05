@@ -55,7 +55,8 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
   theme_cpesr_cap(authors=c("Author One","Author Two"), 
               camille=FALSE, 
               licence="CC BY-SA",
-              url="https://github.com/cpesr/cpesrthemes" )
+              url="https://github.com/cpesr/cpesrthemes",
+              source="https://data.enseignementsup-recherche.gouv.fr")
 ```
 
 ![](README_files/figure-gfm/utilisation.perso-1.png)<!-- -->
@@ -71,7 +72,8 @@ library(ggcpesrthemes)
 theme_cpesr_setup(authors=c("Author One","Author Two"), 
                   camille=FALSE, 
                   licence="CC BY-SA",
-                  url="https://github.com/cpesr/cpesrthemes")
+                  url="https://github.com/cpesr/cpesrthemes",
+                  source="https://data.enseignementsup-recherche.gouv.fr")
 
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
