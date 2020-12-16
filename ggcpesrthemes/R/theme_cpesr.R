@@ -78,7 +78,7 @@ theme_cpesr_cap <- function(authors=NULL,
 #' @param authors a set of author names
 #' @param camille add Camille Noûs as authors (default: TRUE)
 #' @param url a referene url (default: cpesr.fr)
-#' @param licence the licence (default: GPL-3.0)
+#' @param licence the licence (default: LO 2.0)
 #' @param source the source of data
 #' @param base_family the font base family (default: Raleway)
 #' @param ... others arguments passed to theme_hc
@@ -94,7 +94,7 @@ theme_cpesr_cap <- function(authors=NULL,
 theme_cpesr_setup <- function(authors=NA,
                               camille=TRUE,
                               url="cpesr.fr",
-                              licence="GPL-3.0",
+                              licence="LO 2.0",
                               source=NA,
                               base_family="Raleway") {
   .theme_cpesr.env$authors <- authors
