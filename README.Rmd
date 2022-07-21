@@ -29,13 +29,26 @@ Package R pour la production de graphiques.
 devtools::install_github("cpesr/cpesrthemes", subdir="ggcpesrthemes")
 ```
 
-### Utilisation
+```{r lib}
+library(ggplot2)
+library(ggcpesrthemes)
+```
+
+
+### `spoiler_table`
+
+```{r st, results='asis'}
+library(ggplot2)
+library(ggcpesrthemes)
+spoiler_table(esr)
+```
+
+
+### `theme_cpesr`
 
 - Juste le thème
 
 ```{r utilisation.simple, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr() 
