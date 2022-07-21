@@ -15,9 +15,7 @@ devtools::install_github("cpesr/cpesrthemes", subdir="ggcpesrthemes")
 
 ### Utilisation
 
-  - Juste le thème
-
-<!-- end list -->
+-   Juste le thème
 
 ``` r
 library(ggplot2)
@@ -29,9 +27,7 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 
 ![](README_files/figure-gfm/utilisation.simple-1.png)<!-- -->
 
-  - Thème et caption par défaut
-
-<!-- end list -->
+-   Thème et caption par défaut
 
 ``` r
 library(ggplot2)
@@ -43,9 +39,7 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 
 ![](README_files/figure-gfm/utilisation.cap-1.png)<!-- -->
 
-  - Thème et caption personnalisés
-
-<!-- end list -->
+-   Thème et caption personnalisés
 
 ``` r
 library(ggplot2)
@@ -61,9 +55,7 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 
 ![](README_files/figure-gfm/utilisation.perso-1.png)<!-- -->
 
-  - Thème et caption personnalisés globalement
-
-<!-- end list -->
+-   Thème et caption personnalisés globalement
 
 ``` r
 library(ggplot2)
@@ -81,3 +73,65 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 ```
 
 ![](README_files/figure-gfm/utilisation.glob-1.png)<!-- -->
+
+### Customization
+
+-   `x_grid = FALSE`
+
+``` r
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(x_grid = FALSE) 
+```
+
+![](README_files/figure-gfm/x_grid-1.png)<!-- -->
+
+-   `x_ticks = TRUE`
+
+``` r
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(x_ticks = TRUE) 
+```
+
+![](README_files/figure-gfm/x_ticks-1.png)<!-- -->
+
+-   `y_grid = FALSE`
+
+``` r
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(y_grid = FALSE) 
+```
+
+![](README_files/figure-gfm/y_grid-1.png)<!-- -->
+
+-   `y_ticks = TRUE`
+
+``` r
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(y_ticks = TRUE) 
+```
+
+![](README_files/figure-gfm/y_ticks-1.png)<!-- -->
+
+-   `minor_grid = FALSE`
+
+``` r
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(minor_grid = FALSE) 
+```
+
+![](README_files/figure-gfm/minor_panel-1.png)<!-- -->

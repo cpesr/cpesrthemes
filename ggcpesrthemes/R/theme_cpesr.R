@@ -1,4 +1,23 @@
 
+
+#' spoiler_table
+#'
+#' @param df a dataframe or a tibble
+#'
+#' @return df formated with kable inside a spoiler tag working with github markdown
+#' @export
+#'
+#' @examples
+spoiler_table <- function(df) {
+  cat("\n<details>\n")
+  cat("  <summary>Voir les données</summary>\n\n")
+  
+  print(kableExtra::kable(df, format="pipe"))
+  
+  cat("\n\n</details>\n")
+}
+
+
 #' theme_cpesr
 #'
 #' ggplot theme for the CPESR work, based on theme_hc from ggthemes.
@@ -10,10 +29,25 @@
 #' @export
 #'
 #' @examples
-theme_cpesr <- function(base_family="Raleway", ...) {
-  return(
-    ggthemes::theme_hc(base_family=base_family, ...) + ggplot2::theme(axis.title.y = element_text(angle=90))
-  )
+theme_cpesr <- function(x_grid = TRUE, 
+                        y_grid = TRUE, 
+                        x_ticks = FALSE, 
+                        y_ticks = FALSE,
+                        minor_grid = TRUE,
+                        base_family="Raleway", ...) {
+  
+  cpth <- ggplot2::theme_minimal(base_family=base_family, ...) + 
+    ggplot2::theme(
+      #axis.title.y = element_text(angle=90)),
+      legend.position = "bottom"
+    ) 
+    if (!x_grid | x_ticks) cpth <- cpth + theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank())
+    if (x_ticks) cpth <- cpth + theme(axis.ticks.x = element_line(color="black"), panel.grid.minor.x = element_blank())
+    if (!y_grid | y_ticks) cpth <- cpth + theme(panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank())
+    if (y_ticks) cpth <- cpth + theme(axis.ticks.y = element_line(color="black"), panel.grid.minor.y = element_blank())
+    if (!minor_grid) cpth <- cpth + theme(panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank())
+    
+  return(cpth)
 }
 
 

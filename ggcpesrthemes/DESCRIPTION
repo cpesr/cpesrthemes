@@ -9,5 +9,5 @@ License: GNL-3.0
 Encoding: UTF-8
 LazyData: true
 Imports:
-  ggthemes,ggplot2
+  ggplot2,kableExtra
 RoxygenNote: 7.1.1

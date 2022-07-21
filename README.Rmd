@@ -9,13 +9,12 @@ library(tidyverse)
 
 esr <- kpiESR::esr.pnl %>%
   group_by(Rentrée, kpi) %>%
-  filter(Rentrée != 2019, 
-         kpi %in% c("kpi.ETU.S.cycle.1.L","kpi.ETU.S.cycle.2.M","kpi.ETU.S.cycle.3.D")) %>%
+  filter(kpi %in% c("kpi.ETU.S.cycle1_L","kpi.ETU.S.cycle2_M","kpi.ETU.S.cycle3_D")) %>%
   summarise(Effectifs = sum(valeur, na.rm=TRUE)) %>%
   mutate(Niveau = recode(kpi, 
-                         "kpi.ETU.S.cycle.1.L" = "L",
-                         "kpi.ETU.S.cycle.2.M" = "M",
-                         "kpi.ETU.S.cycle.3.D" = "D"))
+                         "kpi.ETU.S.cycle1_L" = "L",
+                         "kpi.ETU.S.cycle2_M" = "M",
+                         "kpi.ETU.S.cycle3_D" = "D"))
 ```
 
 Collections d'aides pour la mise en forme des travaux de la CPESR.
@@ -84,3 +83,60 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
   theme_cpesr_cap()
 ```
 
+
+### Customization
+
+- `x_grid = FALSE`
+
+```{r x_grid, warning=FALSE}
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(x_grid = FALSE) 
+```
+
+
+- `x_ticks = TRUE`
+
+```{r x_ticks, warning=FALSE}
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(x_ticks = TRUE) 
+```
+
+
+
+- `y_grid = FALSE`
+
+```{r y_grid, warning=FALSE}
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(y_grid = FALSE) 
+```
+
+
+- `y_ticks = TRUE`
+
+```{r y_ticks, warning=FALSE}
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(y_ticks = TRUE) 
+```
+
+
+- `minor_grid = FALSE`
+
+```{r minor_panel, warning=FALSE}
+library(ggplot2)
+library(ggcpesrthemes)
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr(minor_grid = FALSE) 
+```
