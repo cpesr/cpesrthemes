@@ -38,8 +38,6 @@ library(ggcpesrthemes)
 ### `spoiler_table`
 
 ```{r st, results='asis'}
-library(ggplot2)
-library(ggcpesrthemes)
 spoiler_table(esr)
 ```
 
@@ -57,8 +55,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - Thème et caption par défaut
 
 ```{r utilisation.cap, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr_cap() 
@@ -68,8 +64,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - Thème et caption personnalisés
 
 ```{r utilisation.perso, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr_cap(authors=c("Author One","Author Two"), 
@@ -82,9 +76,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - Thème et caption personnalisés globalement
 
 ```{r utilisation.glob, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
-
 theme_cpesr_setup(authors=c("Author One","Author Two"), 
                   camille=FALSE, 
                   licence="CC BY-SA",
@@ -102,8 +93,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - `x_grid = FALSE`
 
 ```{r x_grid, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr(x_grid = FALSE) 
@@ -113,8 +102,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - `x_ticks = TRUE`
 
 ```{r x_ticks, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr(x_ticks = TRUE) 
@@ -125,8 +112,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - `y_grid = FALSE`
 
 ```{r y_grid, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr(y_grid = FALSE) 
@@ -136,8 +121,6 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - `y_ticks = TRUE`
 
 ```{r y_ticks, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr(y_ticks = TRUE) 
@@ -147,9 +130,19 @@ ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) +
 - `minor_grid = FALSE`
 
 ```{r minor_panel, warning=FALSE}
-library(ggplot2)
-library(ggcpesrthemes)
 ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
   geom_line() + 
   theme_cpesr(minor_grid = FALSE) 
 ```
+
+- customisation globale
+
+```{r glob, warning=FALSE}
+theme_cpesr_setup(minor_grid = FALSE, x_ticks = TRUE)
+
+ggplot(esr, aes(x=Rentrée, y=Effectifs, color=Niveau, group=Niveau)) + 
+  geom_line() + 
+  theme_cpesr() 
+```
+
+

@@ -29,12 +29,12 @@ spoiler_table <- function(df) {
 #' @export
 #'
 #' @examples
-theme_cpesr <- function(x_grid = TRUE, 
-                        y_grid = TRUE, 
-                        x_ticks = FALSE, 
-                        y_ticks = FALSE,
-                        minor_grid = TRUE,
-                        base_family="Raleway", ...) {
+theme_cpesr <- function(x_grid = .theme_cpesr.env$x_grid, 
+                        y_grid = .theme_cpesr.env$y_grid, 
+                        x_ticks = .theme_cpesr.env$x_ticks, 
+                        y_ticks = .theme_cpesr.env$y_ticks,
+                        minor_grid = .theme_cpesr.env$minor_grid,
+                        base_family= .theme_cpesr.env$base_family, ...) {
   
   cpth <- ggplot2::theme_minimal(base_family=base_family, ...) + 
     ggplot2::theme(
@@ -72,19 +72,12 @@ theme_cpesr <- function(x_grid = TRUE,
 #'           camille=FALSE,
 #'           licence="CC BY-SA",
 #'           url="https://github.com/cpesr/cpesrthemes" )
-cpesr_cap <- function(authors=NULL,
-                      camille=NULL,
-                      url=NULL,
-                      licence=NULL,
-                      source=NULL,
-                      base_family=NULL) {
-  
-  if(is.null(authors)) authors <- .theme_cpesr.env$authors
-  if(is.null(camille)) camille <- .theme_cpesr.env$camille
-  if(is.null(url)) url <- .theme_cpesr.env$url
-  if(is.null(licence)) licence <- .theme_cpesr.env$licence
-  if(is.null(source)) source <- .theme_cpesr.env$source
-  if(is.null(base_family)) base_family <- .theme_cpesr.env$base_family
+cpesr_cap <- function(authors=.theme_cpesr.env$authors,
+                      camille=.theme_cpesr.env$camille,
+                      url=.theme_cpesr.env$url,
+                      licence=.theme_cpesr.env$licence,
+                      source=.theme_cpesr.env$source,
+                      base_family=.theme_cpesr.env$base_family) {
   
   if(camille) { authors <- c(authors, "Camille Noûs") }
   captxt = paste(
@@ -117,12 +110,12 @@ cpesr_cap <- function(authors=NULL,
 #' geom_boxplot() +
 #' theme_cpesr_cap()
 #' 
-theme_cpesr_cap <- function(authors=NULL,
-                            camille=NULL,
-                            url=NULL,
-                            licence=NULL,
-                            source=NULL,
-                            base_family=NULL,
+theme_cpesr_cap <- function(authors=.theme_cpesr.env$authors,
+                            camille=.theme_cpesr.env$camille,
+                            url=.theme_cpesr.env$url,
+                            licence=.theme_cpesr.env$licence,
+                            source=.theme_cpesr.env$source,
+                            base_family=.theme_cpesr.env$base_family,
                             ...) {
   return(
     list(
@@ -156,12 +149,22 @@ theme_cpesr_setup <- function(authors=NA,
                               url="cpesr.fr",
                               licence="LO 2.0",
                               source=NA,
+                              x_grid = TRUE, 
+                              y_grid = TRUE, 
+                              x_ticks = FALSE, 
+                              y_ticks = FALSE,
+                              minor_grid = TRUE,
                               base_family="Raleway") {
   .theme_cpesr.env$authors <- authors
   .theme_cpesr.env$camille <- camille
   .theme_cpesr.env$url <- url
   .theme_cpesr.env$licence <- licence
   .theme_cpesr.env$source <- source
+  .theme_cpesr.env$x_grid <- x_grid 
+  .theme_cpesr.env$y_grid <- y_grid
+  .theme_cpesr.env$x_ticks <- x_ticks 
+  .theme_cpesr.env$y_ticks <- y_ticks
+  .theme_cpesr.env$minor_grid <- minor_grid
   .theme_cpesr.env$base_family <- base_family
 }
 
