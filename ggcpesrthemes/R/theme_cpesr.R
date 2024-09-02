@@ -3,16 +3,18 @@
 #' spoiler_table
 #'
 #' @param df a dataframe or a tibble
+#' @param title the text of the spoiler
+#' @param trim the number of lines to spoil
 #'
 #' @return df formated with kable inside a spoiler tag working with github markdown
 #' @export
 #'
 #' @examples
-spoiler_table <- function(df) {
+spoiler_table <- function(df, title="Voir les données", trim = 6) {
   cat("\n<details>\n")
-  cat("  <summary>Voir les données</summary>\n\n")
+  cat("  <summary>",title,"</summary>\n\n")
   
-  print(kableExtra::kable(df, format="pipe"))
+  print(kableExtra::kable(head(df,n=trim), format="pipe"))
   
   cat("\n\n</details>\n")
 }
@@ -61,6 +63,7 @@ theme_cpesr <- function(x_grid = .theme_cpesr.env$x_grid,
 #' @param licence the licence (default: GPL-3.0)
 #' @param source the source of data
 #' @param base_family the font base family (default: Raleway)
+#' @param oneline TRUE for having a one line caption (default: FALSE)
 #'
 #' @return
 #' @export
@@ -77,7 +80,8 @@ cpesr_cap <- function(authors=.theme_cpesr.env$authors,
                       url=.theme_cpesr.env$url,
                       licence=.theme_cpesr.env$licence,
                       source=.theme_cpesr.env$source,
-                      base_family=.theme_cpesr.env$base_family) {
+                      base_family=.theme_cpesr.env$base_family,
+                      oneline=FALSE) {
   
   if(camille) { authors <- c(authors, "Camille Noûs") }
   captxt = paste(
@@ -85,7 +89,8 @@ cpesr_cap <- function(authors=.theme_cpesr.env$authors,
     "- CPESR",
     licence,
     url,
-    ifelse(!is.na(source),paste0("\nSource : ", source),"") )
+    ifelse(!oneline,"\n","-"),
+    ifelse(!is.na(source),paste0("Source : ", source),"") )
   
   return(list(labs(caption = captxt)))
 }
