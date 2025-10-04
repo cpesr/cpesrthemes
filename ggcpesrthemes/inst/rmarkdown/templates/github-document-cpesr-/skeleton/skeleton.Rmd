@@ -21,7 +21,7 @@ theme_cpesr_setup(authors = "Julien Gossa", source = "https://github.com/cpesr/R
 - url source
 
 ```{r load}
-df <- read.csv2(filename, dec='.')
+df <- read.csv2("filename.csv", dec='.')
 
 colnames(df)
 ```

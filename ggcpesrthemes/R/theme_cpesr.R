@@ -11,12 +11,44 @@
 #'
 #' @examples
 spoiler_table <- function(df, title="Voir les données", trim = 6) {
+  title <- paste(title, "(", nrow(df), "lignes)")
   cat("\n<details>\n")
   cat("  <summary>",title,"</summary>\n\n")
   
   print(kableExtra::kable(head(df,n=trim), format="pipe"))
   
   cat("\n\n</details>\n")
+}
+
+#' Add a spoiler_table to a ggplot
+#'
+#' @param .x ggplot data
+#' @param ... ggplot arguments
+#'
+#' @return a ggplot with a spoiler_table
+#' @export
+ggplot_st <- function(.x, ...) {
+  spoiler_table(.x,paste("Données ",knitr::opts_current$get("label")), trim = Inf)
+  ggplot(.x, ...)
+}
+
+#' Add a download link to a ggplot
+#' Csv files are placed in x_files/figure-data alongside with x_files/figure-gfm
+#'
+#' @param .x ggplot data
+#' @param ... ggplot arguments
+#'
+#' @return a ggplot with a download link
+#' @export
+#'
+#' @examples
+ggplot_sd <- function(.x, ...) {
+  path = str_replace(knitr::opts_current$get("fig.path"),"gfm","data")
+  dir.create(path, showWarnings = FALSE)
+  sdfn <- paste0(path,knitr::opts_current$get("label"),".csv")
+  write.csv2(.x, file = sdfn, row.names = FALSE)
+  cat("[Télécharger les données](",sdfn,")\n\n")
+  ggplot(.x, ...)
 }
 
 
